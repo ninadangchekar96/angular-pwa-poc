@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Create New Complaint</h1>
+<div mat-dialog-content>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Snap Photo</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button cdkFocusInitial (click)="onNoClick()">Ok</button>
+</div>
