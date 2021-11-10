@@ -1,4 +1,4 @@
-<h3 class="table-title">Complaint Dashboard</h3>
+<h3 class="table-title">Complaint List</h3>
 <div class="row">
         <div class="col-sm-9"></div>
         <div class="col-sm-3 mb-3" style="text-align: end;">
@@ -13,14 +13,18 @@
             <th scope="col">Complainant Name</th>
             <th scope="col">Complaint Type</th>
             <th scope="col">Description</th>
+            <th scope="col">Reference Screenshot</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let complaint of dataSource">
             <th scope="row">{{complaint.id}}</th>
-            <td>{{complaint.email}}</td>
             <td>{{complaint.name}}</td>
-            <td>{{complaint.body}}</td>
+            <td>{{complaint.type}}</td>
+            <td>{{complaint.title}}</td>
+            <td class="text-center">
+                <img src="{{complaint.url}}" alt="{{complaint.url}}" width="100" height="100">
+            </td>
           </tr>
         </tbody>
       </table>

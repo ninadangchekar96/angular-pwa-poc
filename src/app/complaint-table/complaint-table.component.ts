@@ -19,14 +19,30 @@ export class ComplaintTableComponent implements OnInit {
 
   ngOnInit(): void {
     this._dataService.getComplaintList().subscribe((data:any) =>{
-      this.dataSource = data.slice(0, 10);
+      this.dataSource = [];
+      this.prepareTableData(data.slice(0,10));
     })
+  }
+
+  prepareTableData(data = []){
+    const complaintCategory = ['Complaint Category 1', 'Complaint Category 2', 'Complaint Category 3', 'Complaint Category 4', 'Complaint Category 5', 'Complaint Category 6', 'Complaint Category 7', 'Complaint Category 8', 'Complaint Category 9', 'Complaint Category 10'];
+
+    const complainantName= ['Jayne Kuhic', 'Nikita Garfield', 'Hayden Althea', 'Mallory Kunze', 'Preston_Hudson', 'Bob Alan', 'Rupert Bran', 'Christopher Hughes', 'Joe Smith', 'Bob Patty'];
+
+    if(data.length > 0){
+      data.forEach((c: object, i) => {
+        const obj:any = {...c};
+        obj.name = complainantName[i];
+        obj.type = complaintCategory[i];
+        this.dataSource.push({...obj});
+      })
+    }
   }
 
   addNewComplaint(){
     const dialogRef = this.dialog.open(CreateComplaintPopupComponent, {
-      height:'50%',
-      width: '50%',
+      height:'100%',
+      width: '100%',
     });
 
     dialogRef.afterClosed().subscribe(result => {

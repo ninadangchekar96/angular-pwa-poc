@@ -10,10 +10,17 @@ export class AppComponent {
   title = 'angular-pwa-example';
 
   constructor(updates:SwUpdate){
+    if(updates.isEnabled){
       updates.versionUpdates.subscribe(event=>{
         updates.activateUpdate().then(()=>{
-          document.location.reload();
+          alert("New update is avaialble");
+          // document.location.reload();
         })
-      })
+      });
+    }
+  }
+
+  refreshPage(){
+    window.location.reload();
   }
 }

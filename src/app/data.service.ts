@@ -11,6 +11,7 @@ export class DataService {
   ) { }
 
   getComplaintList(){
-    return this._http.get('https://jsonplaceholder.typicode.com/comments');
+    // const commentIndex = Math.floor(Math.random() * ((5 - 1) + 1) + 1);
+    return this._http.get(`https://jsonplaceholder.typicode.com/photos`);
   }
 }

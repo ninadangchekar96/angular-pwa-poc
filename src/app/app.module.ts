@@ -14,6 +14,7 @@ import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from "@angular/material/d
 import { ComplaintTableComponent } from './complaint-table/complaint-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateComplaintPopupComponent } from './create-complaint-popup/create-complaint-popup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,8 @@ import { CreateComplaintPopupComponent } from './create-complaint-popup/create-c
     MatPaginatorModule,
     MatIconModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

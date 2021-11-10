@@ -1,10 +1,32 @@
+<button class="close close-btn" mat-button (click)="closeDialog()">X</button>
 <h1 mat-dialog-title>Create New Complaint</h1>
 <div mat-dialog-content>
-    <video id="video" width="640" height="480" autoplay></video>
+    <!-- <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">Snap Photo</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <canvas id="canvas" width="640" height="480"></canvas> -->
+    <form [formGroup]="complaintFormGroup" (ngSubmit)="onSubmitComplaint()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Employee Name</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Employee Name" name="employeeName" formControlName="employeeName">
+        </div>
+        <div class="form-group">
+            <label for="complaintCategory">Category</label>
+            <select class="form-control" id="complaintCategory" name="complaintCategory" formControlName="complaintCategory">
+              <option>Complaint Category 1</option>
+              <option>Complaint Category 2</option>
+              <option>Complaint Category 3</option>
+              <option>Complaint Category 4</option>
+              <option>Complaint Category 5</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label for="complaintDesc">Complaint Description</label>
+          <textarea class="form-control" id="complaintDesc" rows="3" placeholder="Description" name="complaintDescription" formControlName="complaintDescription"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!complaintFormGroup.valid">Submit</button>
+      </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button cdkFocusInitial (click)="onNoClick()">Ok</button>
-</div>
+<!-- <div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">No Thanks</button>
+  <button mat-button cdkFocusInitial color="basic" (click)="onNoClick()">Ok</button>
+</div> -->
