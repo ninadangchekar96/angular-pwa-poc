@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -17,18 +17,6 @@ export class CreateComplaintPopupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Grab elements, create settings, etc.
-    var video:any = document.getElementById('video');
-
-    // Get access to the camera!
-    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // Not adding `{ audio: true }` since we only want video now
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-            //video.src = window.URL.createObjectURL(stream);
-            video.srcObject = stream;
-            video.play();
-        });
-      }
      this.initializeComplaintForm() 
   }
 
@@ -38,11 +26,20 @@ export class CreateComplaintPopupComponent implements OnInit {
 
   initializeComplaintForm(){
     this.complaintFormGroup = this._fb.group({
-      "employeeName": ['', [Validators.required, Validators.email]],
+      "employeeName": ['', Validators.required],
       "complaintCategory":['Complaint Category 1', Validators.required],
       "complaintDescription":['', Validators.required],
-      "complaintPhoto":[''],
+      "complaintPhoto":['', Validators.required],
     })
+  }
+
+  onImageSelection(ev:any){
+    const previewImgContainer:any = document.getElementById('preview');
+    let reader = new FileReader();
+    reader.addEventListener('load', (event:any) => {
+      previewImgContainer.src = event.target.result;
+    });
+    reader.readAsDataURL(ev.target.files[0]);
   }
 
   onSubmitComplaint(){

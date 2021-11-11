@@ -41,6 +41,7 @@ export class ComplaintTableComponent implements OnInit {
 
   addNewComplaint(){
     const dialogRef = this.dialog.open(CreateComplaintPopupComponent, {
+      panelClass: 'complaint-dialog',
       height:'100%',
       width: '100%',
     });

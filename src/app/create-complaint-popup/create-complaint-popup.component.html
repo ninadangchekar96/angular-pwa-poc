@@ -1,6 +1,6 @@
 <button class="close close-btn" mat-button (click)="closeDialog()">X</button>
 <h1 mat-dialog-title>Create New Complaint</h1>
-<div mat-dialog-content>
+<mat-dialog-content>
     <!-- <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">Snap Photo</button>
     <canvas id="canvas" width="640" height="480"></canvas> -->
@@ -23,9 +23,18 @@
           <label for="complaintDesc">Complaint Description</label>
           <textarea class="form-control" id="complaintDesc" rows="3" placeholder="Description" name="complaintDescription" formControlName="complaintDescription"></textarea>
         </div>
+        <div class="form-group">
+           <div class="d-block mb-2">
+              <img id="preview" src="../../assets/icons/placeholder.png" alt="preview your image" height="200" width="200"/>
+           </div>
+           <!-- Take Photo -->
+           <div class="d-block">
+             <input type="file" accept="image/*" name="complaintPhoto" formControlName="complaintPhoto" (change)="onImageSelection($event)"/>
+           </div>
+        </div>
         <button type="submit" class="btn btn-primary" [disabled]="!complaintFormGroup.valid">Submit</button>
       </form>
-</div>
+</mat-dialog-content>
 <!-- <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()" color="warn">No Thanks</button>
   <button mat-button cdkFocusInitial color="basic" (click)="onNoClick()">Ok</button>

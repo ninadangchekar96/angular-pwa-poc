@@ -14,7 +14,7 @@ export class AppComponent {
       updates.versionUpdates.subscribe(event=>{
         updates.activateUpdate().then(()=>{
           alert("New update is avaialble");
-          // document.location.reload();
+          document.location.reload();
         })
       });
     }

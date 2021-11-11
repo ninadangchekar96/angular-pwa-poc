@@ -44,6 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CreateComplaintPopupComponent],
 })
 export class AppModule { }
