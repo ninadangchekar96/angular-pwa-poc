@@ -12,7 +12,8 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
-        ]
+        ],
+        "urls" :["https://fonts.googleapis.com/**"]
       }
     },
     {
@@ -22,7 +23,6 @@
       "resources": {
         "files": [
           "/assets/**",
-          "/assets/icons/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
       }
